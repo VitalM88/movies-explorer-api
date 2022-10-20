@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
 const cors = require('cors');
+const helmet = require('helmet');
 const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
 const { login, createUser } = require('./controllers/users');
@@ -19,6 +20,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
+
+app.use(helmet());
 
 app.use('*', cors(corsConfig));
 
