@@ -6,10 +6,10 @@ const { errors } = require('celebrate');
 const cors = require('cors');
 const helmet = require('helmet');
 const error = require('./middlewares/error');
-require('dotenv').config();
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { corsConfig } = require('./utils/corsConfig');
 const router = require('./routes/index');
+const limiter = require('./middlewares/rateLimiter');
 
 const { PORT = 3000 } = process.env;
 
@@ -18,7 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
-
+app.use(limiter);
 app.use(helmet());
 
 app.use('*', cors(corsConfig));
