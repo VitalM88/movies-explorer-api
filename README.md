@@ -7,20 +7,20 @@
 
 ## Используемые технологии
 :white_check_mark: Expressjs    
-:white_check_mark: nodemon
-:white_check_mark: MongoDB
-:white_check_mark: mongoose
-:white_check_mark: dotenv
-:white_check_mark: cors
-:white_check_mark: celebrate
-:white_check_mark: bcryptjs
-:white_check_mark: express-rate-limit
-:white_check_mark: winston
-:white_check_mark: express-winston
-:white_check_mark: helmet
-:white_check_mark: jsonwebtoken
-:white_check_mark: validator
-:white_check_mark: eslint
+:white_check_mark: nodemon    
+:white_check_mark: MongoDB    
+:white_check_mark: mongoose    
+:white_check_mark: dotenv    
+:white_check_mark: cors    
+:white_check_mark: celebrate    
+:white_check_mark: bcryptjs    
+:white_check_mark: express-rate-limit    
+:white_check_mark: winston    
+:white_check_mark: express-winston    
+:white_check_mark: helmet    
+:white_check_mark: jsonwebtoken    
+:white_check_mark: validator    
+:white_check_mark: eslint    
 
 ## Возможности сайта
 :one: Регистрация нового пользователя.    
