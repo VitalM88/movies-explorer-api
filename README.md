@@ -3,13 +3,13 @@
 ## Описание
 Репозиторий бэкенда приложения проекта Movies, являющийся дипломной работой онлайн курса Яндекс Практикума.
 
-Ссылка на backend проекта:
+Ссылка на backend проекта: api.movie.vitalm.nomoredomains.icu
 
 ## Используемые технологии
 :white_check_mark: Expressjs    
-:white_check_mark: nodemon    
+:white_check_mark: nodemon  
+:white_check_mark: mongoose      
 :white_check_mark: MongoDB    
-:white_check_mark: mongoose    
 :white_check_mark: dotenv    
 :white_check_mark: cors    
 :white_check_mark: celebrate    
