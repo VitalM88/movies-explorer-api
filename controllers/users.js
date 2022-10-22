@@ -6,12 +6,18 @@ const BadRequest = require('../errors/BadRequest');
 const Conflict = require('../errors/Conflict');
 const NotFound = require('../errors/NotFound');
 
+const {
+  BAD_REQUEST_USER_VALIDATION_MESSAGE,
+  NOT_FOUND_USER_MESSAGE,
+  CONFLICT_EMAIL_MESSAGE,
+} = require('../utils/errors');
+
 module.exports.getMe = (req, res, next) => {
   const userId = req.user._id;
   User.findById(userId)
     .then((user) => {
       if (!user) {
-        next(new NotFound('Пользователь с id не найден'));
+        next(new NotFound(NOT_FOUND_USER_MESSAGE));
       } else {
         res.send(user);
       }
@@ -26,7 +32,9 @@ module.exports.updateUserInfo = (req, res, next) => {
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequest('Некорректные данные пользователя'));
+        next(new BadRequest(BAD_REQUEST_USER_VALIDATION_MESSAGE));
+      } else if (err.codeName === 'DuplicateKey') {
+        next(new Conflict(CONFLICT_EMAIL_MESSAGE));
       } else {
         next(err);
       }
@@ -49,9 +57,9 @@ module.exports.createUser = (req, res, next) => {
     }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequest('Некорректные данные пользователя'));
+        next(new BadRequest(BAD_REQUEST_USER_VALIDATION_MESSAGE));
       } else if (err.code === 11000) {
-        next(new Conflict('Даная почта уже зарегестрированна'));
+        next(new Conflict(CONFLICT_EMAIL_MESSAGE));
       } else {
         next(err);
       }
