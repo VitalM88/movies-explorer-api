@@ -1,11 +1,11 @@
-const { SERVER_ERROR } = require('../utils/errors');
+const { SERVER_ERROR, SERVER_ERROR_MESSAGE } = require('../utils/errors');
 
 module.exports = (err, req, res, next) => {
   const { statusCode = SERVER_ERROR, message } = err;
   res
     .status(statusCode)
     .send({
-      message: statusCode === SERVER_ERROR ? 'Ошибка сервера' : message,
+      message: statusCode === SERVER_ERROR ? SERVER_ERROR_MESSAGE : message,
     });
   next();
 };

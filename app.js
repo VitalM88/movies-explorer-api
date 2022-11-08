@@ -11,7 +11,10 @@ const { corsConfig } = require('./utils/corsConfig');
 const router = require('./routes/index');
 const limiter = require('./middlewares/rateLimiter');
 
-const { PORT = 3000 } = process.env;
+const {
+  PORT = 3000,
+  MONGODB_LINK = 'mongodb://localhost:27017/moviesdb',
+} = process.env;
 
 const app = express();
 
@@ -23,7 +26,7 @@ app.use(helmet());
 
 app.use('*', cors(corsConfig));
 
-mongoose.connect('mongodb://localhost:27017/moviesdb', {
+mongoose.connect(MONGODB_LINK, {
   useNewUrlParser: true,
 });
 

@@ -7,11 +7,11 @@
 
 ## Используемые технологии
 :white_check_mark: Expressjs    
-:white_check_mark: nodemon    
+:white_check_mark: nodemon  
+:white_check_mark: mongoose      
 :white_check_mark: MongoDB    
-:white_check_mark: mongoose    
-:white_check_mark: dotenv    
 :white_check_mark: cors    
+:white_check_mark: dotenv    
 :white_check_mark: celebrate    
 :white_check_mark: bcryptjs    
 :white_check_mark: express-rate-limit    

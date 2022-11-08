@@ -10,7 +10,7 @@ const signinValidation = celebrate({
 
 const signupValidation = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
     email: Joi.string().required().email({ tlds: { allow: false } }),
     password: Joi.string().required(),
   }),
@@ -40,7 +40,7 @@ const createMovieValidation = celebrate({
 });
 
 const deleteMovieValidation = celebrate({
-  body: Joi.object().keys({
+  params: Joi.object().keys({
     movieId: Joi.string().hex().length(24).required(),
   }),
 });
